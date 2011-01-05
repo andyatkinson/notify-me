@@ -4,15 +4,58 @@ Notify Me
 
 The app is intended to be deployed on Heroku, but easy to develop locally. We use sqlite locally and Heroku uses Postgres, to store the email addresses. The application views use Haml and Sass. If you like the idea but want to use different tools, feel free to fork and modify to your liking!
 
-Installation
-============
+Local Installation
+==================
+Locally sqlite is used. It may be installed already on your system, to install the Ruby gem for sqlite, I specified the ARCHFLAGS option.
 
- - `gem install sinatra sinatra-sequel sqlite3-ruby`
+    $ sudo env ARCHFLAGS="-arch i386" gem install sqlite3-ruby
+
+Then from there, install the Sinatra framework if you don't have it already, and the other dependencies.
+
+    $ gem install sinatra sequel sinatra-sequel
  
-Running the application
-=======================
+Running the application locally
+===============================
 
- - `ruby -rubygems notify_me.rb`
+    $ ruby -rubygems notify_me.rb
+
+Deploying to Heroku
+===================
+Install the Heroku gem to create a new server.
+
+    $ gem install heroku
+
+Now create a Heroku server, add the remote git repository, and push the code to Heroku. The Heroku gem will print a URL where you can visit your server.
+
+    $ heroku create my_notify_me
+    $ git remote add heroku git@heroku.com:my_notify_me.git
+    $ git push heroku master
+
+Collecting email addresses locally
+=================================
+Since we're using sqlite locally, we can log-in to the database client tool, or use IRB and load the sequel gem.
+
+ sqlite
+ ------
+    $ sqlite3 subscriptions.db
+    $ select email from subscriptions;
+    $ .quit
+
+ IRB
+ ---
+    $ irb -rubygems
+    $ require 'notify_me'
+    $ Subscription.all.map(&:email).join(", ") # get a comma-separated list of email addresses
+
+Collecting email addresses from the Heroku server
+=================================================
+Log-in to the Heroku server to fetch the email addresses. Logging-in to the console is:
+    
+    $ heroku console
+
+From the console, fetch the email addresses the same way as using IRB locally.
+
+    $ Subscription.all.map(&:email).join(", ")
 
 Testing
 =======
