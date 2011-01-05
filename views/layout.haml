@@ -1,0 +1,10 @@
+%html
+  %head
+    %title Notify me when #{settings.product_name} launches!
+    %link{:rel => 'stylesheet', :href => '/reset.css'}
+    %link{:rel => 'stylesheet', :href => '/stylesheet.css'}
+  %body
+    #container
+      = yield
+    %script{:src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'}
+    %script{:src => '/notify_me.js'}
