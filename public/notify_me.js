@@ -23,7 +23,7 @@ var notifyMe = {
         $(this).addClass('disabled');
         if (submitButton.hasClass('enabled')) {submitButton.removeClass('enabled');}
       } else {
-        if (self._validEmail(e)) {
+        if (self._validEmail(e) && textInput.val() != textInput.data('originalVal')) {
           submitButton.addClass('enabled');
         }
       }
@@ -33,9 +33,11 @@ var notifyMe = {
   handleSubmit: function(e) {
     var self = this;
     var form = $('form');
+    var textInput = form.find('input[type=text]');
     form.bind('submit', function(e) {
       e.preventDefault();
-      if (form.find('input[type=text]').val().match(self.emailRegex)) {
+      var val = textInput.val();
+      if (val.match(self.emailRegex) && val != textInput.data('originalVal')) {
         var submitButton = form.find('button[value=submit]');
         submitButton.addClass('enabled');
         form.unbind('submit');

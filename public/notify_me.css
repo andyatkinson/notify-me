@@ -69,7 +69,7 @@ body {
       #container #boxmain #subscribe form input[type=text].disabled {
         color: #999999; }
     #container #boxmain .button-container {
-      margin:10px 0 10px -9px;
+      margin:10px 0 10px -3px;
     }
 
 
@@ -83,14 +83,14 @@ body {
   cursor: pointer;
   background-image: url(/button-right.png);
   background-repeat:no-repeat;
-  background-position:95px 0px;
+  background-position:77px 0px;
   display: block;
-  padding-right:29px;
+  padding-right:44px;
   height:34px;
   overflow:visible;
 }
 #container button.enabled, #container a.button.enabled {
-  background-position:95px -34px;
+  background-position:77px -34px;
 }
 #container button span, #container a.button span {
   display: block;
@@ -120,10 +120,4 @@ button::-moz-focus-inner {
 /* Firefox */
   border: 0;
   padding: 0;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-/* Google Chrome and Safari */
-  button div {
-    margin: -1px -3px;
-  }
 }
