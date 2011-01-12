@@ -77,18 +77,20 @@ body {
 *  Button styles
 */
 #container button, #container a.button {
-  background:none;
+  background:transparent;
   border: 0;
+  display:inline-block;
   cursor: pointer;
   background-image: url(/button-right.png);
   background-repeat:no-repeat;
-  background-position:98px 0px;
+  background-position:95px 0px;
   display: block;
-  padding-right:23px;
+  padding-right:29px;
   height:34px;
+  overflow:visible;
 }
 #container button.enabled, #container a.button.enabled {
-  background-position:98px -34px;
+  background-position:95px -34px;
 }
 #container button span, #container a.button span {
   display: block;
@@ -101,8 +103,6 @@ body {
   line-height: 34px;
   height: 34px;
   padding-left:20px;
-  position: relative;
-  top:-1px;
   text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
   white-space: nowrap; }
 #container button.enabled span, #container a.button.enabled span {
@@ -114,4 +114,16 @@ body {
 * Additional styles for return home button
 */
 #container a.button.enabled { background-position:90px -34px; }
-#container a.button.enabled span { top:0px; }
+
+/* Hacks */
+button::-moz-focus-inner {
+/* Firefox */
+  border: 0;
+  padding: 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* Google Chrome and Safari */
+  button div {
+    margin: -1px -3px;
+  }
+}
