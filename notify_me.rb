@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/sequel'
+require 'haml'
 
 set :product_name, 'Acme Widget'
 set :database, ENV['DATABASE_URL'] || 'sqlite://subscriptions.db'
