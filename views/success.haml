@@ -1,2 +1,8 @@
-%h1 We'll notify #{@email} when #{settings.product_name} launches!
-%a{:href => '/'} Return Home
+#boxtop
+#banner
+  %h1 Thanks for your submission!
+#boxmain
+  %h3 We'll notify #{@email} when #{settings.product_name} launches!
+  .button-container
+    %a{:href => '/', :class => 'button enabled'}
+      %span Return Home

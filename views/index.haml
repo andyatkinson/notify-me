@@ -7,5 +7,6 @@
     %form{:action => '/subscribe', :method => 'post'}
       %label{:for => 'email'} Email
       %input{:type => 'text', :name => 'email', :value => 'you@yourcompany.com'}
-      %button{:value => 'submit', :class => 'submit'}
-        %span Notify Me!
+      .button-container
+        %button{:value => 'submit', :class => 'submit'}
+          %span Notify Me!

@@ -1,47 +1,52 @@
 var notifyMe = {
   emailRegex: /\w+@\w+\.\w+/,
-  buttonSubmitText: 'Saving...',
+  
+  _validEmail: function(e) {
+    var self = this;
+    return $(e.currentTarget).val().match(self.emailRegex) ? true : false;
+  },
   
   emailFieldHintText: function() {
+    var self = this;
     var textInput = $('#subscribe form input[type=text]');
+    var submitButton = $('#subscribe form button[value=submit]');
     textInput.data('originalVal', textInput.val());
-    textInput.focus(function(e) {
-      if ($(this).val() == textInput.data('originalVal')) {
-        $(this).val('');
-      }
+    self.emailElem = textInput;
+    textInput.addClass('disabled');
+    textInput.select();
+    textInput.bind('keypress', function(e) {
+      if ($(this).hasClass('disabled')) {$(this).removeClass('disabled');}
     });
-    textInput.blur(function(e) {
+    textInput.bind('blur', function(e) {
       if ($(this).val() == '') {
         $(this).val(textInput.data('originalVal'));
-      }
-    });
-  },
-  
-  disableSubmitUntilValid: function() {
-    var _this = this;
-    var submitButton = $('#subscribe form input[type=submit]');
-    submitButton.attr('disabled', true);
-    var textInput = $('#subscribe form input[type=text]');
-    textInput.bind('keypress', function(e) {
-      if ($(this).val().match(_this.emailRegex)) {
-        submitButton.attr('disabled', false);
+        $(this).addClass('disabled');
+        if (submitButton.hasClass('enabled')) {submitButton.removeClass('enabled');}
       } else {
-        submitButton.attr('disabled', true);
+        if (self._validEmail(e)) {
+          submitButton.addClass('enabled');
+        }
       }
     });
   },
   
-  submitForm: function() {
-    var _this = this;
-    $('#subscribe form').bind('submit', function(e) {
-      $(this).find('input[type=submit]').val(_this.buttonSubmitText);
-    });
+  handleSubmit: function(e) {
+    var self = this;
+    var form = $('form');
+    form.bind('submit', function(e) {
+      e.preventDefault();
+      if (form.find('input[type=text]').val().match(self.emailRegex)) {
+        var submitButton = form.find('button[value=submit]');
+        submitButton.addClass('enabled');
+        form.unbind('submit');
+        form.submit();
+      }
+    })
   }
 };
 
 
 $(function() {
   notifyMe.emailFieldHintText();
-  notifyMe.disableSubmitUntilValid();
-  notifyMe.submitForm();
+  notifyMe.handleSubmit();
 });

@@ -2,7 +2,7 @@ Notify Me
 =========
 "Notify me" is an small application to collect email addresses from people who are interested in being notified when a product launches. We developed it for BusBrain, our iPhone app, prior to completing it, so we could develop an audience even before it shipped. We considered alternatives like hosted forms, but wanted more control over the presentation.
 
-The app is intended to be deployed on Heroku, but easy to develop locally. We use sqlite locally and Heroku uses Postgres, to store the email addresses. The application views use Haml and Sass. If you like the idea but want to use different tools, feel free to fork and modify to your liking!
+The app is intended to be deployed on Heroku, but easy to develop locally. We use sqlite locally and Heroku uses Postgres, to store the email addresses. The application views use Haml and CSS. If you like the idea but want to use different tools, feel free to fork and modify to your liking!
 
 Local Installation
 ==================
@@ -61,6 +61,15 @@ Testing
 =======
 Coverage of the controller actions is contained within `notify_me_test.rb`. Run the test cases with `ruby -rubygems notify_me_test.rb`. You will need to `gem install rack-test` if it is not installed already.
 
+
+Design 
+======
+A Photoshop document `notify_me.psd` is part of this repository. The PSD can be used as a starting point for customization on your project:
+
+    Software: Adobe Photoshop CS5
+    Size: 4.3 MB
+    Dimensions: 1024x768
+    Fonts: Helvetica Neue
 
 Contributors
 ============

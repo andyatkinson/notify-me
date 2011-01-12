@@ -27,11 +27,3 @@ post '/subscribe' do
   Subscription.insert(:email => @email, :created_at => DateTime.now) unless Subscription.find(:email => @email)
   haml :success
 end
-
-get '/reset.css' do
-  sass :reset
-end
-
-get '/stylesheet.css' do
-  sass :notify_me
-end

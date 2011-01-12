@@ -1,0 +1,117 @@
+body {
+  background: url(/background.png) top left repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+#container {
+  margin: 200px auto;
+  width: 500px; }
+  #container #boxtop {
+    background: url(/boxtop.png) top left no-repeat;
+    margin: 0 auto;
+    height: 44px;
+    width: 464px; }
+  #container #banner {
+    background-color: #77abc9;
+    margin: 0 auto;
+    width: 462px; }
+    #container #banner h1 {
+      color: white;
+      font-weight: bold;
+      font-size: 1.7em;
+      line-height: 1.5em;
+      margin-left: 26px;
+      text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+      top: -5px;
+      width: 462px; }
+  #container #boxmain {
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px;
+    width: 411px; }
+    #container #boxmain p {
+      color: #333333;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 5px 0 13px; }
+    #container #boxmain h3 {
+      color: #333333;
+      font-size: 1.5em;
+      font-weight: normal;
+      line-height: 1.4em; }
+    #container #boxmain a {
+      text-decoration: none;
+      line-height: 4em; }
+    #container #boxmain #subscribe form label {
+      display: none; }
+    #container #boxmain #subscribe form input[type=text] {
+      -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      color: #333333;
+      font-size: 1.4em;
+      margin: 10px 0;
+      padding: 8px;
+      width: 300px; }
+      #container #boxmain #subscribe form input[type=text].disabled {
+        color: #999999; }
+    #container #boxmain .button-container {
+      margin:10px 0 10px -9px;
+    }
+
+
+/*
+*  Button styles
+*/
+#container button, #container a.button {
+  background:none;
+  border: 0;
+  cursor: pointer;
+  background-image: url(/button-right.png);
+  background-repeat:no-repeat;
+  background-position:98px 0px;
+  display: block;
+  padding-right:23px;
+  height:34px;
+}
+#container button.enabled, #container a.button.enabled {
+  background-position:98px -34px;
+}
+#container button span, #container a.button span {
+  display: block;
+  background-image: url(/button-left.png);
+  background-position:0px 0px;
+  background-repeat:no-repeat;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 34px;
+  height: 34px;
+  padding-left:20px;
+  position: relative;
+  top:-1px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  white-space: nowrap; }
+#container button.enabled span, #container a.button.enabled span {
+  background-position:0px -34px;
+  text-shadow:-1px -1px 0 #000;
+}
+
+/*
+* Additional styles for return home button
+*/
+#container a.button.enabled { background-position:90px -34px; }
+#container a.button.enabled span { top:0px; }
