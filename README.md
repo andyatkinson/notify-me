@@ -6,16 +6,17 @@ The app is intended to be deployed on Heroku, but easy to develop locally. We us
 
 Local Installation
 ==================
-Locally sqlite is used. It may be installed already on your system, to install the Ruby gem for sqlite, I specified the ARCHFLAGS option.
+Locally sqlite is used as the database. Sqlite is probably installed already, but you may need to install the ruby gem for it. Check the output of `gem list` and see if it is installed. If it is not installed, install the ruby gem for sqlite. I specified the ARCHFLAGS option on my machine:
 
     $ sudo env ARCHFLAGS="-arch i386" gem install sqlite3-ruby
 
-Then from there, install the Sinatra framework if you don't have it already, and the other dependencies.
+Then from there, install the Sinatra framework if you don't have it already, and the other dependencies. You can install the dependencies with the following command.
 
-    $ gem install sinatra sequel sinatra-sequel
+    $ gem install sinatra sinatra-sequel haml
  
 Running the application locally
 ===============================
+To run the application locally, just run the following command. If you want the changes to get reloaded automatically, install the shotgun gem `gem install shotgun` and run the app this way instead: `shotgun notify_me.rb`.
 
     $ ruby -rubygems notify_me.rb
 
