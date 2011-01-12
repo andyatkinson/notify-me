@@ -25,10 +25,9 @@ Install the Heroku gem to create a new server.
 
     $ gem install heroku
 
-Now create a Heroku server, add the remote git repository, and push the code to Heroku. The Heroku gem will print a URL where you can visit your server.
+Now create a Heroku server. Enter your credentials if necessary. Heroku will automatically add a git remote named heroku. Once the server is created and the git remote is added, push the app to Heroku. The Heroku gem will print a URL where you can visit your server, for example `http://my-notify-me.heroku.com/`.
 
-    $ heroku create my_notify_me
-    $ git remote add heroku git@heroku.com:my_notify_me.git
+    $ heroku create my-notify-me
     $ git push heroku master
 
 Collecting email addresses locally
