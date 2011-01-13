@@ -2,6 +2,8 @@ Notify Me
 =========
 "Notify me" is an small application to collect email addresses from people who are interested in being notified when a product launches. We developed it for BusBrain, our iPhone app, prior to completing it, so we could develop an audience even before it shipped. We considered alternatives like hosted forms, but wanted more control over the presentation.
 
+<img src='https://github.com/webandy/notify_me/raw/master/public/screenshot.png' />
+
 The app is intended to be deployed on Heroku, but easy to develop locally. We use sqlite locally and Heroku uses Postgres, to store the email addresses. The application views use Haml and CSS. If you like the idea but want to use different tools, feel free to fork and modify to your liking!
 
 Local Installation
