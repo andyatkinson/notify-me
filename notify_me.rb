@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/sequel'
 
 set :product_name, 'Acme Widget'
+set :product_keywords, 'widget, acme, awesome, cool'
 set :placeholder_email, 'you@yourcompany.com'
 set :database, ENV['DATABASE_URL'] || 'sqlite://notify-me.db'
 
@@ -35,6 +36,8 @@ __END__
 <!DOCTYPE html>
 <html>
   <head>
+    <meta content='<%= settings.product_name %>' name='description' />
+    <meta content='<%= settings.product_keywords %>' name='keywords' />
     <title><%= "Notify me when #{settings.product_name} launches!" %></title>
     <link href='/reset.css' rel='stylesheet' />
     <link href='/notify-me.css' rel='stylesheet' />
