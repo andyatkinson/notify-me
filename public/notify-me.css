@@ -107,7 +107,7 @@ body {
 .yellow.awesome:hover { background-color: #fc9200; }
 
 /*button styles for notify-me*/
-button.awesome, a.awesome, a.awesome.enabled {
+button.awesome, a.awesome, .awesome.enabled {
   background-color:#d3d3d3;
   -moz-border-radius:15px;
   -webkit-border-radius:15px;
