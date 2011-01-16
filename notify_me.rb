@@ -60,9 +60,7 @@ __END__
       <label for='email'>Email</label>
       <input type='text' name='email' value='<%= settings.placeholder_email %>'></input>
       <div class='button-container'>
-        <button value='submit' class='submit'>
-          <span>Notify Me!</span>
-        </button>
+        <button value='submit' class='awesome'>Notify Me!</button>
       </div>
     </form>
   </div>
@@ -76,6 +74,6 @@ __END__
 <div id='boxmain'>
   <h3><%= "We'll notify #{@email} when #{settings.product_name} launches!" %></h3>
   <div class='button-container'>
-    <a href='/' class='button enabled'><span>Return Home</span></a>
+    <a href='/' class='awesome enabled'>Return Home</a>
   </div>
 </div>
