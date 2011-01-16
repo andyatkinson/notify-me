@@ -1,9 +1,9 @@
 require 'sinatra'
 require 'sinatra/sequel'
-require 'haml'
 
 set :product_name, 'Acme Widget'
-set :database, ENV['DATABASE_URL'] || 'sqlite://subscriptions.db'
+set :placeholder_email, 'you@yourcompany.com'
+set :database, ENV['DATABASE_URL'] || 'sqlite://notify-me.db'
 
 migration "create subscriptions" do
   database.create_table :subscriptions do
@@ -17,7 +17,7 @@ class Subscription < Sequel::Model
 end
 
 get '/' do
-  haml :index
+  erb :index
 end
 
 post '/subscribe' do
@@ -26,5 +26,56 @@ post '/subscribe' do
   end
   @email = params[:email]
   Subscription.insert(:email => @email, :created_at => DateTime.now) unless Subscription.find(:email => @email)
-  haml :success
+  erb :success
 end
+
+__END__
+
+@@ layout
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "Notify me when #{settings.product_name} launches!" %></title>
+    <link href='/reset.css' rel='stylesheet' />
+    <link href='/notify-me.css' rel='stylesheet' />
+  </head>
+  <body>
+    <div id='container'>
+      <%= yield %>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+    <script src='/notify-me.js'></script>
+  </body>
+</html>
+
+@@ index
+<div id='boxtop'></div>
+<div id='banner'>
+  <h1><%= "#{settings.product_name} will be launching soon!" %></h1>
+</div>
+<div id='boxmain'>
+  <p>Enter your email address below and we'll notify you when it has launched.</p>
+  <div id='subscribe'>
+    <form action='/subscribe' method='post'>
+      <label for='email'>Email</label>
+      <input type='text' name='email' value='<%= settings.placeholder_email %>'></input>
+      <div class='button-container'>
+        <button value='submit' class='submit'>
+          <span>Notify Me!</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+@@ success
+<div id='boxtop'></div>
+<div id='banner'>
+  <h1>Thanks for your submission!</h1>
+</div>
+<div id='boxmain'>
+  <h3><%= "We'll notify #{@email} when #{settings.product_name} launches!" %></h3>
+  <div class='button-container'>
+    <a href='/' class='button enabled'><span>Return Home</span></a>
+  </div>
+</div>

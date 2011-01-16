@@ -1,26 +1,32 @@
 Notify Me
 =========
-"Notify me" is an small application to collect email addresses from people who are interested in being notified when a product launches. We developed it for BusBrain, our iPhone app, prior to completing it, so we could develop an audience even before it shipped. We considered alternatives like hosted forms, but wanted more control over the presentation.
+"Notify Me" is a simple 2-page web app that collects email addresses from people that want to be notified about the launch of a product. We developed it for our iPhone app BusBrain so we could develop an audience for it before it was completed. We considered hosted forms from Wufoo and Google Docs, but wanted more control over the presentation. We aren't creating user records either, simply collecting email addresses.
+
+Here is what Notify Me looks like by default:
 
 <img src='https://github.com/webandy/notify_me/raw/master/public/screenshot.png' />
 
-The app is intended to be deployed on Heroku, but easy to develop locally. We use sqlite locally and Heroku uses Postgres, to store the email addresses. The application views use Haml and CSS. If you like the idea but want to use different tools, feel free to fork and modify to your liking!
+Notify Me was designed for Heroku which uses Postgres as the database server, but can be used locally with sqlite. If you like the idea but want to use different tools, feel free to fork and modify Notify Me for your own needs! The intent was to keep it very simple with few dependencies, so it could be modified.
 
 Local Installation
 ==================
-Locally sqlite is used as the database. Sqlite is probably installed already, but you may need to install the ruby gem for it. Check the output of `gem list` and see if it is installed. If it is not installed, install the ruby gem for sqlite. I specified the ARCHFLAGS option on my machine:
+Sqlite is used in development. Sqlite is probably installed on your machine, but you may need to install the ruby gem for it. Check the output of `gem list` for sqlite3 (e.g. `gem list | grep sqlite3-ruby`) and install it if necessary. I specified the ARCHFLAGS option for my install on OS X:
 
     $ sudo env ARCHFLAGS="-arch i386" gem install sqlite3-ruby
 
-Then from there, install the Sinatra framework if you don't have it already, and the other dependencies. You can install the dependencies with the following command.
+Install the Sinatra framework if you don't have it already, and the the `sinatra-sequel` gem. You can install the dependencies with the following command:
 
-    $ gem install sinatra sinatra-sequel haml
+    $ gem install sinatra sinatra-sequel
  
 Running the application locally
 ===============================
-To run the application locally, just run the following command. If you want the changes to get reloaded automatically, install the shotgun gem `gem install shotgun` and run the app this way instead: `shotgun notify_me.rb`.
+To run the application locally, just run the following command. If you want changes to get reloaded automatically, install the shotgun gem `gem install shotgun` and run the app with shotgun instead: `shotgun notify_me.rb`.
 
     $ ruby -rubygems notify_me.rb
+
+Customization
+=============
+Notify Me is intended to be customized for your project. In `notify_me.rb` you can easily change the product name or placeholder email strings. Of course you can also edit the markup directly. Sinatra provides a `settings` feature and using it for customized strings is a nice way of indicating what you've changed.
 
 Deploying to Heroku
 ===================
@@ -39,7 +45,7 @@ Since we're using sqlite locally, we can log-in to the database client tool, or 
 
  sqlite
  ------
-    $ sqlite3 subscriptions.db
+    $ sqlite3 notify-me.db
     $ select email from subscriptions;
     $ .quit
 
@@ -63,18 +69,17 @@ Testing
 =======
 Coverage of the controller actions is contained within `notify_me_test.rb`. Run the test cases with `ruby -rubygems notify_me_test.rb`. You will need to `gem install rack-test` if it is not installed already.
 
-
 Design 
 ======
-A Photoshop document `notify_me.psd` is part of this repository. The PSD can be used as a starting point for customization on your project:
+A Photoshop document `notify-me.psd` is part of this repository. The PSD can be used as a starting point for design customization:
 
     Software: Adobe Photoshop CS5
     Size: 4.3 MB
     Dimensions: 1024x768
     Fonts: Helvetica Neue
+    Creator: Nate Kadlac
 
 Contributors
 ============
-
  - Andy Atkinson (@webandy)
  - Nate Kadlac (@kadlac)
