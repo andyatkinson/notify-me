@@ -6,7 +6,7 @@ body {
 }
 
 #container {
-  margin: 200px auto;
+  margin: 20% auto;
   width: 500px; }
   #container #boxtop {
     background: url(/boxtop.png) top left no-repeat;
@@ -108,13 +108,13 @@ body {
 
 /*button styles for notify-me*/
 button.awesome, a.awesome, .awesome.enabled {
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255, .5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255, .5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255, .5);
   background-color:#d3d3d3;
   -moz-border-radius:15px;
   -webkit-border-radius:15px;
   border-radius:15px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
   border:1px solid rgba(0,0,0,0.2);
   font-size:1.2em;
   text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
