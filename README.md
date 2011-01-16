@@ -4,7 +4,7 @@ Notify Me
 
 Here is what Notify Me looks like by default:
 
-<img src='https://github.com/webandy/notify_me/raw/master/public/screenshot.png' />
+<img src='https://github.com/webandy/notify-me/raw/master/public/screenshot.png' />
 
 Notify Me was designed for Heroku which uses Postgres as the database server, but can be used locally with sqlite. If you like the idea but want to use different tools, feel free to fork and modify Notify Me for your own needs! The intent was to keep it very simple with few dependencies, so it could be modified.
 
