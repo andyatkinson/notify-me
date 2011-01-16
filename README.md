@@ -39,6 +39,20 @@ Now create a Heroku server. Enter your credentials if necessary. Heroku will aut
     $ heroku create my-notify-me
     $ git push heroku master
 
+Adding a custom domain
+======================
+To add a customized domain name (not using subdomains) for your new Heroku server, [read their docs](http://docs.heroku.com/custom-domains) and run these commands:
+
+    $ heroku addons:add custom_domains
+    $ heroku domains:add www.example.com
+    $ heroku domains:add example.com
+
+In your DNS tool, add the following A records for the domain. I used Namecheap which has fields for 2 records, so I added the first two. Run `host example.com` to confirm the settings.
+
+    75.101.163.44
+    75.101.145.87
+    174.129.212.2
+
 Collecting email addresses locally
 =================================
 Since we're using sqlite locally, we can log-in to the database client tool, or use IRB and load the sequel gem.
