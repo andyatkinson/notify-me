@@ -1,6 +1,6 @@
 Notify Me
 =========
-"Notify Me" is a simple 2-page web app that collects email addresses from people that want to be notified about the launch of a product. We developed it for our iPhone app BusBrain so we could develop an audience for it before it was completed. We considered hosted forms from Wufoo and Google Docs, but wanted more control over the presentation. We aren't creating user records either, simply collecting email addresses.
+"Notify Me" is a simple 2-page web app that collects email addresses from people that want to be notified about the launch of a product. We developed it for our iPhone app [Bus Brain](http://busbrainapp.com/) so we could develop an audience for it before it was completed. We considered hosted forms from Wufoo and Google Docs, but wanted more control over the presentation. We aren't creating user records either, simply collecting email addresses.
 
 Here is what Notify Me looks like by default:
 
