@@ -5,6 +5,7 @@ set :product_name, 'Acme Widget'
 set :product_keywords, 'widget, acme, awesome, cool'
 set :placeholder_email, 'you@yourcompany.com'
 set :database, ENV['DATABASE_URL'] || 'sqlite://notify-me.db'
+set :analytics_id, 'UA-XXXXX-X' #Just keep UA-XXXXX-X to not load analytics
 
 migration "create subscriptions" do
   database.create_table :subscriptions do
@@ -48,6 +49,15 @@ __END__
     </div>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
     <script src='/notify-me.js'></script>
+  <% if settings.analytics_id != 'UA-XXXXX-X' && settings.environment == :production %>
+    <!-- mathiasbynens.be/notes/async-analytics-snippet  -->
+    <script>
+      var _gaq=[['_setAccount','<%= settings.analytics_id %>'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  <% end %>
   </body>
 </html>
 
