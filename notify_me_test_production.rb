@@ -4,7 +4,7 @@ require 'rack/test'
 
 set :environment, :production
 
-class NotifyMeTest < Test::Unit::TestCase
+class NotifyMeTestProduction < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
