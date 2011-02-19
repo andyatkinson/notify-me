@@ -103,3 +103,4 @@ Contributors
 ============
  - Andy Atkinson (@webandy)
  - Nate Kadlac (@kadlac)
+ - David Barlow (http://madeindata.com/)
