@@ -81,7 +81,13 @@ From the console, fetch the email addresses the same way as using IRB locally.
 
 Testing
 =======
-Coverage of the controller actions is contained within `notify_me_test.rb`. Run the test cases with `ruby -rubygems notify_me_test.rb`. You will need to `gem install rack-test` if it is not installed already.
+Coverage of the controller actions is contained within `notify_me_test.rb`. Run that test with:
+
+ - `ruby -rubygems notify_me_test.rb`. You will need to `gem install rack-test` if it is not installed already.
+
+An additional production environment test that includes the GA script based on the environment can be run as follows:
+
+ - `ruby -rubygems notify_me_test_production.rb`
 
 Design 
 ======
