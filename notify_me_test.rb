@@ -28,4 +28,10 @@ class NotifyMeTest < Test::Unit::TestCase
     assert last_response.ok?
     assert last_response.body.include?("We'll notify test@gmail.com when Acme Widget launches!")
   end
+  
+  def test_subscribe_path_with_existing_email_renders_error_message
+    post '/subscribe', :email => "test@gmail.com"
+    assert last_response.ok?
+    assert last_response.body.include?("It looks like you already subscribed with test@gmail.com, no need to do it again.")
+  end
 end

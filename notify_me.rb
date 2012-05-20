@@ -27,8 +27,12 @@ post '/subscribe' do
     halt 'Email is required to subscribe!'
   end
   @email = params[:email]
-  Subscription.insert(:email => @email, :created_at => DateTime.now) unless Subscription.find(:email => @email)
-  erb :success
+  if Subscription.find(:email => @email)
+    erb :error
+  else
+   Subscription.insert(:email => @email, :created_at => DateTime.now)
+   erb :success
+  end
 end
 
 __END__
@@ -86,6 +90,18 @@ __END__
 </div>
 <div id='boxmain'>
   <h3><%= "We'll notify #{@email} when #{settings.product_name} launches!" %></h3>
+  <div class='button-container'>
+    <a href='/' class='awesome enabled'>Return Home</a>
+  </div>
+</div>
+
+@@ error
+<div id='boxtop'></div>
+<div id='banner'>
+  <h1>Woops, seems you've already registered! ---</h1>
+</div>
+<div id='boxmain'>
+  <h3><%= "It looks like you already subscribed with #{@email}, no need to do it again." %></h3>
   <div class='button-container'>
     <a href='/' class='awesome enabled'>Return Home</a>
   </div>
