@@ -1,12 +1,12 @@
 Notify Me
 =========
-"Notify Me" is a simple 2-page web app that collects email addresses from people that want to be notified about the launch of a product. We developed it for our iPhone app [Bus Brain](http://busbrainapp.com/) so we could develop an audience for it before it was completed. We considered hosted forms from Wufoo and Google Docs, but wanted more control over the presentation. We aren't creating user records either, simply collecting email addresses.
+"Notify Me" is a simple 2-page web app that collects email addresses from people that want to be notified about the launch of a product. We developed it for our iPhone app Bus Brain so we could develop an audience for it before it was completed. We considered hosted forms from Wufoo and Google Docs, but wanted more control over the presentation. We aren't creating user records either, simply collecting email addresses.
 
 Here is what Notify Me looks like by default:
 
 <img src='https://github.com/andyatkinson/notify-me/raw/master/public/screenshot.png' />
 
-Notify Me was designed for Heroku which uses Postgres as the database server, but can be used locally with sqlite. If you like the idea but want to use different tools, feel free to fork and modify Notify Me for your own needs! The intent was to keep it very simple with few dependencies, so it could be modified.
+Notify Me was designed for Heroku which uses Postgres as the database server, but can be used locally with sqlite. If you like the idea but want to use different tools, feel free to fork and modify Notify Me for your own needs! The intent was to keep it very simple with few dependencies, so it could be modified easily.
 
 Local Installation
 ==================
@@ -101,6 +101,6 @@ A Photoshop document `notify-me.psd` is part of this repository. The PSD can be 
 
 Contributors
 ============
- - Andy Atkinson (@webandy)
- - Nate Kadlac (@kadlac)
- - David Barlow (http://madeindata.com/)
+ - Andy Atkinson
+ - Nate Kadlac
+ - David Barlow
