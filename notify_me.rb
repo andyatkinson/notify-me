@@ -71,7 +71,7 @@ __END__
   <div id='subscribe'>
     <form action='/subscribe' method='post'>
       <label for='email'>Email</label>
-      <input type='text' name='email' value='<%= settings.placeholder_email %>'></input>
+      <input type='text' name='email' placeholder='<%= settings.placeholder_email %>'></input>
       <div class='button-container'>
         <button value='submit' class='awesome'>Notify Me!</button>
       </div>
