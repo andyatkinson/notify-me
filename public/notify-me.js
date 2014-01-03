@@ -1,11 +1,11 @@
 var notifyMe = {
   emailRegex: /\w+@\w+\.\w+/,
-  
+
   _validEmail: function(e) {
     var self = this;
     return $(e.currentTarget).val().match(self.emailRegex) ? true : false;
   },
-  
+
   emailFieldHintText: function() {
     var self = this;
     var textInput = $('#subscribe form input[type=text]');
@@ -29,7 +29,7 @@ var notifyMe = {
       }
     });
   },
-  
+
   handleSubmit: function(e) {
     var self = this;
     var form = $('form');

@@ -16,13 +16,13 @@ class NotifyMeTest < Test::Unit::TestCase
     assert last_response.body.include?('Acme Widget will be launching soon!')
     assert last_response.body.include?('form')
   end
-  
+
   def test_subscribe_path_without_email_renders_error
     post '/subscribe'
     assert !last_response.ok?
     assert last_response.body.include?('Email is required to subscribe!')
   end
-  
+
   def test_subscribe_path_with_email_renders_success_message
     post '/subscribe', :email => "test@gmail.com"
     assert last_response.ok?

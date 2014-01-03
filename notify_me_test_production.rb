@@ -16,7 +16,7 @@ class NotifyMeTestProduction < Test::Unit::TestCase
     get '/'
     assert last_response.body.include?('UA-XXXXX-8')
   end
-  
+
   def test_root_path_no_analytics
     set :analytics_id, 'UA-XXXXX-X'
     get '/'
