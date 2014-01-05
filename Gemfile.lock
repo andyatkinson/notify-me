@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     bacon (1.2.0)
+    pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
@@ -23,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg
   rack-test
   sinatra
   sinatra-sequel

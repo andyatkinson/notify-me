@@ -1,7 +1,15 @@
+configure :development do
+  set :database, 'sqlite://notify-me.db'
+  set :show_exceptions, true
+end
+
+configure :production do
+  set :database, ENV['DATABASE_URL']
+end
+
 set :product_name, 'Acme Widget'
 set :product_keywords, 'widget, acme, awesome, cool'
 set :placeholder_email, 'you@yourcompany.com'
-set :database, ENV['DATABASE_URL'] || 'sqlite://notify-me.db'
 set :analytics_id, 'UA-XXXXX-X' #Just keep UA-XXXXX-X to not load analytics
 enable :inline_templates
 
