@@ -41,7 +41,9 @@ select email from subscriptions;
     
 ``` bash
 heroku run console
-Subscription.all.map(&:email).join(", ")
+Bundler.require
+require_relative "notify_me"
+Subscription.all.map(&:email)
 ```
 
 ## Testing
@@ -59,4 +61,4 @@ A Photoshop document `notify-me.psd` is part of this repository. The PSD can be 
     Fonts: Helvetica Neue
     Creator: Nate Kadlac
 
-Copyright 2013 Andy Atkinson. MIT License.
+Copyright 2011 Andy Atkinson. MIT License.
