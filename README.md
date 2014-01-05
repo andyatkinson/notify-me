@@ -31,9 +31,9 @@ heroku open
 ### Viewing email addresses with sqlite locally
 
 ``` bash
-    sqlite3 notify-me.db
-    select email from subscriptions;
-    .quit
+sqlite3 notify-me.db
+select email from subscriptions;
+.quit
 ```
 
 ## Viewing emails addresses on Heroku
