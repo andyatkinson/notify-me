@@ -1,0 +1,66 @@
+<h1>Notify Me</h1>
+
+<p>"Notify Me" is a 2-page web app that collects email addresses. </p>
+
+<p>Here is what Notify Me looks like by default:</p>
+
+<p><img src='https://github.com/andyatkinson/notify-me/raw/master/public/screenshot.png' /></p>
+
+<p>Notify Me was designed for Heroku which uses Postgres as the database server, but can be used locally with sqlite. If you like the idea but want to use different tools, feel free to fork and modify Notify Me for your own needs! The intent was to keep it very simple with few dependencies, so it could be modified easily.</p>
+
+<h2>Installation and usage</h2>
+
+<p><code>bash
+bundle
+rackup
+</code></p>
+
+<p>Open your browser to <code>http://localhost:9292/</code>.</p>
+
+<h2>Customization</h2>
+
+<p>Notify Me is intended to be customized. In <code>notify_me.rb</code> you can change the product name, placeholder email strings, Google Analytics account ID and more. Of course you can also edit the markup of the inline templates as well. </p>
+
+<h2>Deploying to Heroku</h2>
+
+<p>Install the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>.</p>
+
+<p><code>bash
+heroku create
+git push heroku master
+heroku open
+</code></p>
+
+<h3>Viewing email addresses with sqlite locally</h3>
+
+<p><code>bash
+    sqlite3 notify-me.db
+    select email from subscriptions;
+    .quit
+</code></p>
+
+<h2>Viewing emails addresses on Heroku</h2>
+
+<p><code>bash
+heroku run console
+Subscription.all.map(&amp;:email).join(", ")
+</code></p>
+
+<h2>Testing</h2>
+
+<p><code>bash
+rake
+</code></p>
+
+<h2>Design</h2>
+
+<p>A Photoshop document <code>notify-me.psd</code> is part of this repository. The PSD can be used as a starting point for design customization:</p>
+
+<pre><code>Software: Adobe Photoshop CS5
+Size: 4.3 MB
+Dimensions: 1024x768
+Fonts: Helvetica Neue
+Creator: Nate Kadlac
+</code></pre>
+
+<p>Copyright 2013 Andy Atkinson. MIT License.</p>

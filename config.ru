@@ -1,3 +1,7 @@
-require 'notify_me'
+require 'rubygems'
+require 'bundler'
 
+Bundler.require
+
+require './notify_me'
 run Sinatra::Application

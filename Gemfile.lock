@@ -1,0 +1,29 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bacon (1.2.0)
+    rack (1.5.2)
+    rack-protection (1.5.1)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    sequel (4.6.0)
+    sinatra (1.4.4)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    sinatra-sequel (0.9.0)
+      bacon
+      sequel (>= 3.2.0)
+      sinatra (>= 0.9.4)
+    sqlite3 (1.3.8)
+    tilt (1.4.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rack-test
+  sinatra
+  sinatra-sequel
+  sqlite3

@@ -1,11 +1,9 @@
-require 'sinatra'
-require 'sinatra/sequel'
-
 set :product_name, 'Acme Widget'
 set :product_keywords, 'widget, acme, awesome, cool'
 set :placeholder_email, 'you@yourcompany.com'
 set :database, ENV['DATABASE_URL'] || 'sqlite://notify-me.db'
 set :analytics_id, 'UA-XXXXX-X' #Just keep UA-XXXXX-X to not load analytics
+enable :inline_templates
 
 migration "create subscriptions" do
   database.create_table :subscriptions do
@@ -23,8 +21,8 @@ get '/' do
 end
 
 post '/subscribe' do
-  if params[:email].empty?
-    halt 'Email is required to subscribe!'
+  if params[:email].nil?
+    halt 200, 'Email is required to subscribe!'
   end
   @email = params[:email]
   Subscription.insert(:email => @email, :created_at => DateTime.now) unless Subscription.find(:email => @email)

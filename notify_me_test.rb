@@ -1,10 +1,14 @@
-require 'notify_me'
-require 'test/unit'
+require 'bundler'
+Bundler.require :default, :test
+
+require 'minitest/autorun'
 require 'rack/test'
 
-ENV['RACK_ENV'] = 'test'
+require_relative './notify_me'
 
-class NotifyMeTest < Test::Unit::TestCase
+set :environment, :test
+
+class NotifyMeTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
 
   def app
@@ -19,7 +23,7 @@ class NotifyMeTest < Test::Unit::TestCase
   
   def test_subscribe_path_without_email_renders_error
     post '/subscribe'
-    assert !last_response.ok?
+    assert last_response.ok?
     assert last_response.body.include?('Email is required to subscribe!')
   end
   
