@@ -24,6 +24,7 @@ Install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ``` bash
 heroku create
+heroku addons:add heroku-postgresql
 git push heroku master
 heroku open
 ```

@@ -4,7 +4,7 @@ configure :development do
 end
 
 configure :production do
-  set :database, Sequel.connect(ENV['DATABASE_URL'])
+  set :database, Sequel.connect(ENV['HEROKU_POSTGRESQL_BROWN_URL'])
 end
 
 set :product_name, 'Acme Widget'
