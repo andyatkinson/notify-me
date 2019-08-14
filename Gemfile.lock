@@ -3,8 +3,8 @@ GEM
   specs:
     bacon (1.2.0)
     pg (0.17.1)
-    rack (1.5.2)
-    rack-protection (1.5.1)
+    rack (1.6.11)
+    rack-protection (1.5.5)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -17,7 +17,7 @@ GEM
       bacon
       sequel (>= 3.2.0)
       sinatra (>= 0.9.4)
-    sqlite3 (1.3.8)
+    sqlite3 (1.4.1)
     tilt (1.4.1)
 
 PLATFORMS
@@ -29,3 +29,6 @@ DEPENDENCIES
   sinatra
   sinatra-sequel
   sqlite3
+
+BUNDLED WITH
+   1.16.1
